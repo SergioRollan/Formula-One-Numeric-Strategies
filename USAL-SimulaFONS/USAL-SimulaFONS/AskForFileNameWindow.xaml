@@ -1,0 +1,25 @@
+﻿<Window x:Class="USAL_SimulaFONS.AskForFileNameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:USAL_SimulaFONS"
+        mc:Ignorable="d"
+        Title="File Naming" Height="180" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#121212">
+    
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBox x:Name="txtbx" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="60,20"/>
+		<Button Name="saveBtn" Click="saveBtn_Click" Grid.Row="1" Grid.Column="0" Margin="40 0" Height="32" BorderBrush="#FF008AFF" Background="#FF008AFF" Foreground="White" >Save</Button>
+		<Button Name="cancelBtn" Click="cancelBtn_Click" Grid.Row="1" Grid.Column="1" Margin="40 0" Height="32" BorderBrush="#C7C7C7" Background="White" Foreground="#FF121212">Cancel</Button>
+	</Grid>
+</Window>
