@@ -21,7 +21,7 @@ The summary of the app's functionality can be classified in:
 * In the ".exe" file, the user that execute the program without needing Visual Studio.
 * The app needs to have a "FilesFONS" folder *in the user's desktop* to be able to import and export drivers and tracks correctly. This repository has a folder with the same name that includes some examples for the users to have the opportunity to try the app quicker and more easily. If the user creates their drivers and/or tracks, wants to export them and this folder does not exist, it will be automatically created.
 * All the source files can be found in the remaining folder. Visual Studio 2022 or later and Matlab 2022 or later are needed.
-* This program uses a channel between C# and Matlab that was discontinued, so it does not work anymore. The user would have to execute the Matlab script by themselves. See Chapter 7 for more information about this.
+* This program uses a channel between C# and Matlab that was discontinued. Therefore, it does not work anymore. The user would have to execute the Matlab script by themselves. See Chapter 7 for more information about this.
 
 --------------------------------------------------------
 ---------- CHAPTER 2: DRIVERS DATA ----------
@@ -61,5 +61,37 @@ The summary of the app's functionality can be classified in:
 --------------------------------------------------------
 ---------- CHAPTER 4: IMPORT & EXPORT ----------
 -
+
+* This feature makes use of the "FilesFONS" directory the user will need to have in their Desktop.
+* When using any of the "Export" options (drivers, track or both) the user will write a string [name] and a file named [[name].fons] will be created in the "FilesFONS" folder.
+* When using any of the "Import" options (drivers, track or both) the user will write a string [name], the program will search for a [[name].fons] in the "FilesFONS" folder. If the folder does not exist, a file with that name does not exist, it does not match the info the user is looking for (the user is looking for driver and the file stores a track), or the file contains unreadable information, an error message will be shown.
+
+--------------------------------------------------------
+---------- CHAPTER 5: PITSTOP DATA ----------
+-
+
+* For every driver, the user will be able to set their starting tyres, all their pitstop laps and the tyres they will change to among the available they were set in the drivers data window.
+* If a same tyre is chosen twice (for example, as the starting tyres and after the second pitstop), when they are used again, they will have as many laps as they had when they were changed last time (if they had 2 laps of usage at the start and the first pitstop happened in lap 10, when they are worn again, they will start at 12 laps).
+* If a pitstop is set for a lap higher than the total laps the race has, the pitstop will never happen.
+
+--------------------------------------------------------
+---------- CHAPTER 6: RACE DATA & RESULTS ----------
+-
+
+* The user can set the number of laps the driver will have to race
+* The user can set periods of accident and the laps they each will last.
+  * Yellow flags will not slow drivers down, but overtakes will be forbidden.
+  * VSC will slow drivers down to delta pace and overtakes will be forbidden.
+  * SC will slow the driver in first place, and everyone else will go at normal pace until they reach the race head.
+
+--------------------------------------------------------
+---------- CHAPTER 7: FUTURE WORK ----------
+-
+
+* At first, Matlab worked well with the C# channel, as the code has it written in.
+* As Matlab discontinued this work, a placeholder example image was placed to always show no matter the data.
+* It is unlikely that we get to continue this project, but the first thing to do would be searching for another way of conecting the backend of the app with the matlab commands.
+* Safer programming should be implemented. For example, we could check if the VSC pace is faster than the normal pace, or if the overtaking time loss is higher than the overtaken time loss, among other stuff.
+
 
 
